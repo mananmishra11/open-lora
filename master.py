@@ -16,6 +16,7 @@ def main():
     print(f'Data Samples: {raw_data.size/1e6} million; SF = {SF}; BW = {BW/1e3} kHz')
 
     # Demodulate symbols
+    print('Running Std-Lora')
     symbols = demod.std_lora(raw_data, Fs, BW, SF, payload_num)
     # Decode message and find error metrics
     if symbols != []:
@@ -23,12 +24,15 @@ def main():
     else:
        print('No symbols found')
 
+
+    print('Running CIC')
     symbols = demod.cic(raw_data, Fs, BW, SF, payload_num)
     if symbols != []:
         metrics.calculate(symbols, out_file, 'cic')
     else:
        print('No symbols found')
 
+    print('Running CoLoRa')
     # Find preamble with correlation
     import multiprocessing
     import math
@@ -60,12 +64,14 @@ def main():
     else:
        print('No symbols found')
 
+    print('Running NScale')
     symbols = demod.nscale(raw_data, Fs, BW, SF, payload_num, preamble_idx)
     if symbols != []:
        metrics.calculate(symbols, out_file, 'nscale')
     else:
       print('No symbols found')
 
+    # print('Running FTrack')
     # symbols = demod.ftrack(raw_data, Fs, BW, SF, payload_num)#, preamble_idx)
     # if symbols != []:
     #     metrics.calculate(symbols, out_file, 'ftrack')
