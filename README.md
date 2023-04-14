@@ -25,11 +25,11 @@ CIC: demod.cic()
 
 ## Docker Configuration:
 1. Clone the git repo.
-2. Copy the desired data file to the folder where local git repo is cloned.
+2. Copy the desired data file to the folder where local git repo is cloned. The included data file *High_1pps.data* can also be used to run as is.
 3. Change the configuration in *config.py*, setting up parameters for the desired dataset.
 4. Run the following docker command:
 > docker build --tag open-lora
-5. Finally, use the following commannd to run the frmaework with the new dataset.
+5. Finally, use the following commannd to run the framework with the new dataset.
 > docker run open-lora
 
 

@@ -4,7 +4,7 @@
 FROM python:3.8-slim-buster
 
 # Set current directory as working directory
-WORKDIR /app
+WORKDIR /
 
 # Intall required Python packages
 COPY requirements.txt requirements.txt
@@ -14,4 +14,4 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # Run
-CMD [ "python3", "master.py", "--host=0.0.0.0"]
+CMD [ "python3", "-u", "master.py" ]
