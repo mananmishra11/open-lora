@@ -24,12 +24,21 @@ CIC: demod.cic()
 **metrics.py:** Takes the demodulated symbols as input and calls the decoder to find out various metrics. Prints out Symbols Error Rate (SER), Bit Error Rate (BER), Packet Detection Rate (PDR) and Throughtput (in bits/s)
 
 ## Docker Configuration:
+
+### Running with custom dataset:
 1. Clone the git repo.
-2. Copy the desired data file to the folder where local git repo is cloned. The included data file *High_1pps.data* can also be used to run as is.
+2. Copy the desired data file to the folder where local git repo is cloned.
 3. Change the configuration in *config.py*, setting up parameters for the desired dataset.
 4. Run the following docker command:
 > docker build --tag open-lora
 5. Finally, use the following commannd to run the framework with the new dataset.
 > docker run open-lora
+
+### Running with included dataset:
+The included data file *High_1pps.data* can also be used to run the framework as is.
+The docker image can be found [here](https://hub.docker.com/r/mananmishra11/open-lora*).
+Run the following commands ro run the docker image:
+> docker pull mananmishra11/open-lora
+> docker run mananmishra11/open-lora
 
 
