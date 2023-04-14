@@ -75,7 +75,10 @@ def UC_location_corr_DC_based(Data,DC_ind):
                         # This extracts a list of all peaks that are N samples apart
             peak_ind_prev = peak_ind_curr
         array_stack.append(n_samp_array)
-    array_stack = np.array(array_stack)
+    # print(array_stack)
+    # array_stack = np.array(array_stack)
+    # print(array_stack)
+    # print('\n')
 
     for m in range(len(array_stack)):
         n_samp_array = np.array(array_stack[m])

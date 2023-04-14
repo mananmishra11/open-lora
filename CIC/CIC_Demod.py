@@ -107,7 +107,10 @@ def CIC_Demod(Pream_ind,Rx_Buffer,Pream_ind_stack,Peak_amp,m):
         ## Filtering Preamble of interfering Packets
         # Filter out Peaks with in current window that are appearinf repeatedly
         # in 3 consecutive windows
-        if not (frame_indices[k,1] + N > len(Rx_Buffer) or frame_indices[k,1] + 2*N > len(Rx_Buffer)):
+        # print(len(Rx_Buffer[frame_indices[k,0] + 2*N : frame_indices[k,1] + 2*N+1]))
+        # print(len(DC))
+        # print('\n')
+        if not (frame_indices[k,1] + N + 1 > len(Rx_Buffer) or frame_indices[k,1] + 2*N + 1 > len(Rx_Buffer)):
             data_wind_next_1 = Rx_Buffer[frame_indices[k,0] + N : frame_indices[k,1] + N+1] * DC
             data_wind_prev_1 = Rx_Buffer[frame_indices[k,0] - N : frame_indices[k,1] - N+1] * DC
             data_wind_next_2 = Rx_Buffer[frame_indices[k,0] + 2*N : frame_indices[k,1] + 2*N+1] * DC
