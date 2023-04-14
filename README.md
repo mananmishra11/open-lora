@@ -36,7 +36,7 @@ CIC: demod.cic()
 
 ### Running with included dataset:
 The included data file *High_1pps.data* can also be used to run the framework as is.
-The docker image can be found [here](https://hub.docker.com/r/mananmishra11/open-lora*).
+The docker image can be found [here](https://hub.docker.com/r/mananmishra11/open-lora).
 Run the following commands ro run the docker image:
 > docker pull mananmishra11/open-lora
 
